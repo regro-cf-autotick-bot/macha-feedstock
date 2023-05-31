@@ -6,11 +6,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/akaupang/macha/archive/refs/tags/v0.0.1.tar.gz  
+  url: https://github.com/akaupang/macha/archive/refs/tags/v{{ version }}.tar.gz  
   sha256: d5edddcd89164a368ca93dd54136e1568303ff37b413d0a423a8c6be69450ea2
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv   
 
 requirements:
