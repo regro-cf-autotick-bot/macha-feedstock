@@ -1,37 +1,37 @@
 {% set name = "macha" %}
-{% set version = "0.0.1" %}
+{% set version = "0.0.3" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/akaupang/macha/archive/refs/tags/v{{ version }}.tar.gz  
-  sha256: d5edddcd89164a368ca93dd54136e1568303ff37b413d0a423a8c6be69450ea2
+  url: https://github.com/akaupang/macha/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: f28fcf4cbd7d4a858afb2bbccd7f19d9cf74a69c2f6bd8edcd05b57a20984139
 build:
   noarch: python
-  number: 1
-  script: {{ PYTHON }} -m pip install . -vv   
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-  - pip
-  - python >=3.6
+    - pip
+    - python >=3.6
   run:
-  - python >=3.6
-  - parmed
-  - openbabel
-  - natsort
+    - python >=3.6
+    - parmed
+    - openbabel
+    - natsort
 
 test:
   imports:
     - macha
     - macha.functions
     - macha.charmm_factory
-        
+
 about:
   home: https://github.com/akaupang/macha
-  summary: 'maNUAL chaRMM (macha)'
+  summary: maNUAL chaRMM (macha)
   description: |
     A multi-purpose tool for automated setup of MD systems (e.g. for transformato) 
     and local, menu-based rerunning of CHARMM-GUI input scripts for CHARMM 
