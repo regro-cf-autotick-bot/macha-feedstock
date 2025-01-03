@@ -10,20 +10,22 @@ source:
   sha256: f28fcf4cbd7d4a858afb2bbccd7f19d9cf74a69c2f6bd8edcd05b57a20984139
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - parmed
     - openbabel
     - natsort
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - macha
     - macha.functions
